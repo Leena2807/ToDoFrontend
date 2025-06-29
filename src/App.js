@@ -58,7 +58,7 @@ function App() {
   //Fetching the task
   const fetchTasks = async (token) => {
     const response = await fetch(
-      "https://todobackend-6v52.onrender.com/tasks",
+      "https://todobackend-6v52.onrender.com/task",
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -122,7 +122,7 @@ function App() {
 
   // Delete task
   const deleteTask = async (id) => {
-    await fetch(`https://todobackend-6v52.onrender.com/tasks/${id}`, {
+    await fetch(`https://todobackend-6v52.onrender.com/task/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -135,7 +135,7 @@ function App() {
   const updateTasksStatus = async (id, currentStatus) => {
     const newStatus = currentStatus === "pending" ? "complete" : "pending";
     const response = await fetch(
-      `https://todobackend-6v52.onrender.com/tasks/${id}/status`,
+      `https://todobackend-6v52.onrender.com/task/${id}/status`,
       {
         method: "PATCH",
         headers: {
@@ -152,7 +152,7 @@ function App() {
   // Updation of priority
   const updateTasksPriority = async (id, newPriority) => {
     const response = await fetch(
-      `https://todobackend-6v52.onrender.com/tasks/${id}/priority`,
+      `https://todobackend-6v52.onrender.com/task/${id}/priority`,
       {
         method: "PATCH",
         headers: {
