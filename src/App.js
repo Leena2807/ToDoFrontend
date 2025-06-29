@@ -54,7 +54,7 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [tasks, setTasks] = useState([]);
   const [filterStatus, setFilterStatus] = useState("all");
-  const [filterPriority, setFilterPrirority] = useState("all");
+  const [filterPriority, setFilterPriority] = useState("all");
   //Fetching the task
   const fetchTasks = async (token) => {
     const response = await fetch(
@@ -264,11 +264,12 @@ function App() {
           </select>
              
           <select
+             value={filterPriority}
             onChange={(e) => {
               setFilterPriority(e.target.value);
             }}
             className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-            value={filterPriority}
+         
           >
             <option value="all">All Priorities</option>
             <option value="low">Low</option>
