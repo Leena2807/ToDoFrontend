@@ -265,7 +265,7 @@ function App() {
                 </button>
                 <select
                   value={task.priority}
-                  onChange={(e) => updateTaskPriority(task._id, e.target.value)}
+                  onChange={(e) => updateTasksPriority(task._id, e.target.value)}
                   className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
                 >
                   <option value="low">Low</option>
