@@ -222,8 +222,7 @@ function App() {
             addTasks(e.target[0].value);
             e.target[0].value = "";
           }}
-          className="mb-6 flex gap-2 justify-center"
-        >
+          className="mb-6 flex gap-2 justify-center" >
            
           <input
             type="text"
