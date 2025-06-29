@@ -283,7 +283,7 @@ function App() {
           //   <option value="medium">Medium</option>
           //   <option value="high">High</option>
           // </select>
-        </div>
+        // </div>
         {/*task after Filtering */}
         <ul className="space-y-4">
           {filteredTasks.map((task) => (
