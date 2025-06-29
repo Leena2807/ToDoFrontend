@@ -150,8 +150,8 @@ function App() {
   };
 
   // Updation of priority
-  const updateTasksPriority = async (id, newPriority) => {
-    try {
+ const updateTasksPriority = async (id, newPriority) => {
+  try {
     const response = await fetch(
       `https://todobackend-6v52.onrender.com/tasks/${id}/priority`,
       {
@@ -163,13 +163,22 @@ function App() {
         body: JSON.stringify({ priority: newPriority }),
       }
     );
-    const updatedTask = await response.json();
-     console.log("Updated task:", updatedTask);
-    setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
-  }catch (error) {
-        console.error("Error updating priority:", error);
-        alert("Failed to update priority");
+
+    if (!response.ok) {
+      throw new Error("Failed to update priority");
     }
+
+    const updatedTask = await response.json();
+    console.log("✅ Priority updated:", updatedTask);
+
+    // Ensure immediate UI update
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => (task._id === id ? updatedTask : task))
+    );
+  } catch (error) {
+    console.error("❌ Error updating priority:", error);
+    alert("Failed to update priority, try again.");
+  }
 };
 //   const updateTasksPriority = async (id, newPriority) => {
 //   try {
@@ -253,18 +262,27 @@ function App() {
             <option value="Completed">Completed</option>
             <option value="pending">Pending</option>
           </select>
-          <select
-            onChange={(e) => {
-              setFilterPriority(e.target.value);
-            }}
-            className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-            value={filterPriority}
-          >
-            <option value="all">All Priorities</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
+              <select
+  value={task.priority}
+  onChange={(e) => updateTasksPriority(task._id, e.target.value)}
+  className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+>
+  <option value="low">Low</option>
+  <option value="medium">Medium</option>
+  <option value="high">High</option>
+</select>
+          // <select
+          //   onChange={(e) => {
+          //     setFilterPriority(e.target.value);
+          //   }}
+          //   className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+          //   value={filterPriority}
+          // >
+          //   <option value="all">All Priorities</option>
+          //   <option value="low">Low</option>
+          //   <option value="medium">Medium</option>
+          //   <option value="high">High</option>
+          // </select>
         </div>
         {/*task after Filtering */}
         <ul className="space-y-4">
