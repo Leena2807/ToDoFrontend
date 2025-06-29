@@ -278,7 +278,7 @@ function App() {
           </select>
         </div>
   {/*task after Filtering */}
-   // console.log(tasks) 
+  {/*console.log(tasks) */}
         <ul className="space-y-4" >
           {filteredTasks.map((task) => (
             <li
