@@ -168,7 +168,7 @@ function App() {
   const updateTasksPriority = async (id, newPriority) => {
   try {
     const response = await fetch(
-      ⁠ https://todobackend-6v52.onrender.com/task/${id}/priority ⁠, // ✅ FIXED
+      ⁠ `https://todobackend-6v52.onrender.com/task/${id}/priority` ⁠, // ✅ FIXED
       {
         method: "PATCH",
         headers: {
