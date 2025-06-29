@@ -298,7 +298,7 @@ function App() {
                       : "bg-green-400 text-green-900 hover:bg-green-500"
                   }`}
                 >
-                  {task.status === "pending" ? "Mark Complete" : "Mark Pending"}
+                  {task.status === "pending" ? "completed" : "pending"}
                 </button>
                 <select
                   value={task.priority}
