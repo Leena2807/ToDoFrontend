@@ -133,7 +133,7 @@ function App() {
 
   // Updation of status
   const updateTasksStatus = async (id, currentStatus) => {
-    const newStatus = currentStatus === "pending" ? "complete" : "pending";
+    const newStatus = currentStatus === "pending" ? "completed" : "pending";
     const response = await fetch(
       `https://todobackend-1-ey3n.onrender.com/tasks/${id}/status`,
       {
@@ -278,6 +278,7 @@ function App() {
           </select>
         </div>
   {/*task after Filtering */}
+  console.log(tasks);
         <ul className="space-y-4" >
           {filteredTasks.map((task) => (
             <li
