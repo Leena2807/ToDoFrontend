@@ -79,25 +79,9 @@ function App() {
     setTasks([]);
   };
 
-  // const addTasks = async (text) => {
-  //   const response = await fetch(
-  //     "https://todobackend-6v52.onrender.com/tasks",
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({ text, status: "pending", priority: "medium" }),
-  //     }
-  //   );
-  //   const newTask = await response.json();
-  //   setTasks([...tasks, newTask]);
-  // };
   const addTasks = async (text) => {
-  try {
     const response = await fetch(
-      "https://todobackend-6v52.onrender.com/task",
+      "https://todobackend-6v52.onrender.com/tasks",
       {
         method: "POST",
         headers: {
@@ -107,18 +91,34 @@ function App() {
         body: JSON.stringify({ text, status: "pending", priority: "medium" }),
       }
     );
-
-    if (!response.ok) {
-      throw new Error("Failed to add task");
-    }
-
     const newTask = await response.json();
-    setTasks((prev) => [...prev, newTask]);
-  } catch (error) {
-    console.error(error);
-    alert("Error adding task. Please try again.");
-  }
-};
+    setTasks([...tasks, newTask]);
+  };
+//   const addTasks = async (text) => {
+//   try {
+//     const response = await fetch(
+//       "https://todobackend-6v52.onrender.com/task",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-type": "application/json",
+//           Authorization: `Bearer ${token}`,
+//         },
+//         body: JSON.stringify({ text, status: "pending", priority: "medium" }),
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error("Failed to add task");
+//     }
+
+//     const newTask = await response.json();
+//     setTasks((prev) => [...prev, newTask]);
+//   } catch (error) {
+//     console.error(error);
+//     alert("Error adding task. Please try again.");
+//   }
+// };
 
   // Delete task
   const deleteTask = async (id) => {
