@@ -262,30 +262,22 @@ function App() {
             <option value="Completed">Completed</option>
             <option value="pending">Pending</option>
           </select>
-              <select
-  value={task.priority}
-  onChange={(e) => updateTasksPriority(task._id, e.target.value)}
-  className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
->
-  <option value="low">Low</option>
-  <option value="medium">Medium</option>
-  <option value="high">High</option>
-</select>
-          // <select
-          //   onChange={(e) => {
-          //     setFilterPriority(e.target.value);
-          //   }}
-          //   className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-          //   value={filterPriority}
-          // >
-          //   <option value="all">All Priorities</option>
-          //   <option value="low">Low</option>
-          //   <option value="medium">Medium</option>
-          //   <option value="high">High</option>
-          // </select>
-        // </div>
+             
+          <select
+            onChange={(e) => {
+              setFilterPriority(e.target.value);
+            }}
+            className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={filterPriority}
+          >
+            <option value="all">All Priorities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
         /*task after Filtering */
-        <ul className="space-y-4">
+        <ul className="space-y-4" >
           {filteredTasks.map((task) => (
             <li
               key={task._id}
