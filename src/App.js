@@ -173,11 +173,11 @@ function App() {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
-          Authorization: ⁠ Bearer ${token} ⁠,
+          Authorization: ⁠ `Bearer ${token}` ⁠,
         },
         body: JSON.stringify({ priority: newPriority }),
       }
-    );
+      };
 
     const updatedTask = await response.json(); // wrap in try-catch optionally
     setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
