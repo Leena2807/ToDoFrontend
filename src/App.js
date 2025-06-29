@@ -97,7 +97,7 @@ function App() {
   const addTasks = async (text) => {
   try {
     const response = await fetch(
-      "https://todobackend-6v52.onrender.com/tasks",
+      "https://todobackend-6v52.onrender.com/task",
       {
         method: "POST",
         headers: {
