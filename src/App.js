@@ -56,11 +56,11 @@ function App() {
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterPriority, setFilterPrirority] = useState("all");
   //Fetching the task
-  const fetchTask = async (token) => {
+  const fetchTasks = async (token) => {
     const response = await fetch(
       "https://todobackend-6v52.onrender.com/tasks",
       {
-        header: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
     const data = await response.json();
