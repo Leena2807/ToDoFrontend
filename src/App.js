@@ -284,7 +284,7 @@ function App() {
           //   <option value="high">High</option>
           // </select>
         // </div>
-        {/*task after Filtering */}
+        /*task after Filtering */
         <ul className="space-y-4">
           {filteredTasks.map((task) => (
             <li
