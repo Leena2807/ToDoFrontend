@@ -135,7 +135,7 @@ function App() {
   const updateTasksStatus = async (id, currentStatus) => {
     const newStatus = currentStatus === "pending" ? "complete" : "pending";
     const response = await fetch(
-      `https://todobackend-6v52.onrender.com/task/${id}/status`,
+      `https://todobackend-6v52.onrender.com/tasks/${id}/status`,
       {
         method: "PATCH",
         headers: {
