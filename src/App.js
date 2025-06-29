@@ -248,7 +248,7 @@ function App() {
           </select>
           <select
             onChange={(e) => {
-              setFilterPrirority(e.target.value);
+              setFilterPriority(e.target.value);
             }}
             className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
             value={filterPriority}
