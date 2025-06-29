@@ -52,7 +52,7 @@ import Signup from "./signup";
 function App() {
   // Add token state
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [tasks, getTask] = useState([]);
+  const [tasks, setTask] = useState([]);
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterPriority, setFilterPrirority] = useState("all");
   //Fetching the task
