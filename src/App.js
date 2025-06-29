@@ -150,41 +150,41 @@ function App() {
   };
 
   // Updation of priority
-  // const updateTasksPriority = async (id, newPriority) => {
-  //   const response = await fetch(
-  //     `https://todobackend-6v52.onrender.com/tasks/${id}/priority`,
-  //     {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({ priority: newPriority }),
-  //     }
-  //   );
-  //   const updatedTask = await response.json();
-  //   setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
-  // };
   const updateTasksPriority = async (id, newPriority) => {
-  try {
     const response = await fetch(
-      ⁠ `https://todobackend-6v52.onrender.com/tasks/${id}/priority` ⁠, // ✅ FIXED
+      `https://todobackend-6v52.onrender.com/tasks/${id}/priority`,
       {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
-          Authorization: ⁠ `Bearer ${token}` ⁠,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ priority: newPriority }),
       }
-      };
-
-    const updatedTask = await response.json(); // wrap in try-catch optionally
+    );
+    const updatedTask = await response.json();
     setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
-  } catch (error) {
-    console.error("Error updating priority:", error);
-  }
-};
+  };
+//   const updateTasksPriority = async (id, newPriority) => {
+//   try {
+//     const response = await fetch(
+//       ⁠ `https://todobackend-6v52.onrender.com/tasks/${id}/priority` ⁠, // ✅ FIXED
+//       {
+//         method: "PATCH",
+//         headers: {
+//           "Content-type": "application/json",
+//           Authorization: ⁠ `Bearer ${token}` ⁠,
+//         },
+//         body: JSON.stringify({ priority: newPriority }),
+//       }
+//       };
+
+//     const updatedTask = await response.json(); // wrap in try-catch optionally
+//     setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
+//   } catch (error) {
+//     console.error("Error updating priority:", error);
+//   }
+// };
 
   //Filtering task
   const filteredTasks = tasks.filter(
