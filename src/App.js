@@ -216,26 +216,15 @@ function App() {
         <h1 className="text-4x1 font-extrabold text-center mb-8 text-orange-600 drop-shadow">
           MERN To-Do App
         </h1>
-        // <form
-        //   onSubmit={(e) => {
-        //     e.preventDefault();
-        //     addTasks(e.target[0].value);
-        //     e.target[0].value = "";
-        //   }}
-        //   className="mb-6 flex gap-2 justify-center"
-        // >
-            <form
-  onSubmit=>{(e) => {
-    e.preventDefault();
-    const taskText = e.target[0].value.trim();
-    if (!taskText) {
-      alert("Please enter a task name before adding.");
-      return;
-    }
-    addTasks(taskText);
-    e.target[0].value = "";
-  }}
->
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            addTasks(e.target[0].value);
+            e.target[0].value = "";
+          }}
+          className="mb-6 flex gap-2 justify-center"
+        >
+           
           <input
             type="text"
             className="p-3 border-2 border-orange-300 rounded-lg w-2/3 focus:outline-none focus:ring-orange-400"
