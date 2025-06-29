@@ -150,7 +150,7 @@ function App() {
   };
 
   // Updation of priority
-  const updateTasksPriority = async (id, newPriority) => 
+  const updateTasksPriority = async (id, newPriority) => {
     try {
     const response = await fetch(
       `https://todobackend-6v52.onrender.com/tasks/${id}/priority`,
