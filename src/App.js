@@ -259,7 +259,7 @@ function App() {
             value={filterStatus}
           >
             <option value="all">All status</option>
-            <option value="Completed">Completed</option>
+            <option value="completed">Completed</option>
             <option value="pending">Pending</option>
           </select>
              
