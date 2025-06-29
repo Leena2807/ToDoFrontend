@@ -229,7 +229,7 @@ function App() {
               </div>
               <div className="flex gap-2 items-center">
                 <button
-                  onClick={() => updateTaskStatus(task._id, task.status)}
+                  onClick={() => updateTasksStatus(task._id, task.status)}
                   className={`px-3 py-1 rounded-full font-semibold transition-colors duration-200 ${
                     task.status === "pending"
                       ? "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
