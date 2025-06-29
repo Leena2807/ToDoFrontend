@@ -225,7 +225,7 @@ function App() {
         //   className="mb-6 flex gap-2 justify-center"
         // >
             <form
-  onSubmit={(e) => {
+  onSubmit=>{(e) => {
     e.preventDefault();
     const taskText = e.target[0].value.trim();
     if (!taskText) {
