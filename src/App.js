@@ -230,12 +230,12 @@ const permanentlyDeleteTask = (id) => {
       <nav className="bg-orange-500 text-white px-6 py-4 flex justify-between items-centershadow-md">
         <ul className="flex space-x-4">
           <li>
-       <button
+<button
   onClick={() => setShowTrash(!showTrash)}
   className={`px-4 py-2 rounded-full font-semibold transition-colors duration-200 ${
     showTrash
-      ? "bg-orange-700 text-white"
-      : "bg-orange-500 text-white hover:bg-orange-600 hover:text-white focus:bg-orange-700 focus:outline-none"
+      ? "bg-orange-700 text-white hover:bg-orange-800"
+      : "bg-orange-500 text-white hover:bg-orange-600"
   }`}
 >
   {showTrash ? "Hide Trash" : "View Trash"}
