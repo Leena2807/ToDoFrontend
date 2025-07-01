@@ -333,8 +333,8 @@ const permanentlyDeleteTask = (id) => {
             onClick={() => updateTasksStatus(task._id, task.status)}
             className={`px-3 py-1 rounded-full font-semibold transition-colors duration-200 ${
               task.status === "pending"
-                ? "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
-                : "bg-green-400 text-green-900 hover:bg-green-500"
+                ? "bg-yellow-300 text-yellow-900 hover:bg-yellow-500"
+                : "bg-green-300 text-green-900 hover:bg-green-500"
             }`}
           >
             {task.status === "pending" ? "Mark Complete" : "Mark Pending"}
