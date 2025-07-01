@@ -234,7 +234,7 @@ const permanentlyDeleteTask = (id) => {
           onClick={() => setShowTrash(!showTrash)}
             className="px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-orange-600 hover:text-white focus:bg-orange-700 focus:outline-none"
         >
-  {showTrash ? "Trash🗑️" : "View Trash"}
+  {showTrash ? "View Tasks" : "View Trash"}
 </button>
           </li>
         </ul>
