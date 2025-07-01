@@ -232,10 +232,8 @@ const permanentlyDeleteTask = (id) => {
           <li>
         <button
           onClick={() => setShowTrash(!showTrash)}
-            className="px-4 py-2 rounded-full font-semibold transition-colors duration-200 ${
-    showTrash
-      ? "bg-orange-700 text-white"
-      : "bg-orange-500 text-white hover:bg-orange-600 hover:text-white focus:bg-orange-700 focus:outline-none"
+            className=`px-4 py-2 rounded-full font-semibold transition-colors duration-200 ${
+    showTrash? "bg-orange-700 text-white": "bg-orange-500 text-white hover:bg-orange-600 hover:text-white focus:bg-orange-700 focus:outline-none"
   }`}
         >
   {showTrash ? "Hide Trash" : "View Trash"}
