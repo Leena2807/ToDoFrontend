@@ -135,6 +135,20 @@ function App() {
     setTasks(tasks.filter((task) => task._id != id));
   };
 
+  // Restore task from Trash
+const restoreTask = (id) => {
+  const taskToRestore = deletedTasks.find((task) => task._id === id);
+  if (taskToRestore) {
+    setTasks([...tasks, taskToRestore]);
+    setDeletedTasks(deletedTasks.filter((task) => task._id !== id));
+  }
+};
+
+// Permanently delete task from Trash
+const permanentlyDeleteTask = (id) => {
+  setDeletedTasks(deletedTasks.filter((task) => task._id !== id));
+};
+
   // Updation of status
   const updateTasksStatus = async (id, currentStatus) => {
     const newStatus = currentStatus === "pending" ? "completed" : "pending";
@@ -283,62 +297,68 @@ function App() {
         </div>
   {/*task after Filtering */}
   {/*console.log(tasks) */}
-        <ul className="space-y-4">
-  {showTrash
-    ? deletedTasks.map((task) => (
-        <li
-          key={task._id}
-          className="p-4 bg-red-100 rounded-xl shadow flex flex-col md:flex-row md:item-center md:justify-center gap-4 hover:bg-red-200 transition duration-300"
-        >
-          <div className="flex-1">
-            <span className="text-lg text-red-800">{task.text}</span>
-            <span className="ml-2 text-sm text-gray-500">
-              ({task.status}, {task.priority})
-            </span>
-          </div>
-        </li>
-      ))
-    : filteredTasks.map((task) => (
-        <li
-          key={task._id}
-          className="p-4 bg-white rounded-xl shadow flex flex-col md:flex-row md:item-center md:justify-center gap-4 hover:bg-orange-100 transition duration-300"
-        >
-          <div className="flex-1">
-            <span className="text-lg text-orange-800">{task.text}</span>
-            <span className="ml-2 text-sm text-gray-500">
-              ({task.status}, {task.priority})
-            </span>
-          </div>
-          <div className="flex gap-2 items-center">
-            <button
-              onClick={() => updateTasksStatus(task._id, task.status)}
-              className={`px-3 py-1 rounded-full font-semibold transition-colors duration-200 ${
-                task.status === "pending"
-                  ? "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
-                  : "bg-green-400 text-green-900 hover:bg-green-500"
-              }`}
-            >
-              {task.status === "pending" ? "completed" : "pending"}
-            </button>
-            <select
-              value={task.priority}
-              onChange={(e) => updateTasksPriority(task._id, e.target.value)}
-              className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-            >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-            <button
-              onClick={() => deleteTask(task._id)}
-              className="flex items-center gap-1 px-3 py-1 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-full transition-colors duration-200 ml-2"
-              title="Delete Task"
-            >
-              <i className="fas fa-trash" /> Delete
-            </button>
-          </div>
-        </li>
-      ))}
+       <ul className="space-y-4">
+  {(showTrash ? deletedTasks : filteredTasks).map((task) => (
+    <li
+      key={task._id}
+      className="p-4 bg-white rounded-xl shadow flex flex-col md:flex-row md:item-center md:justify-between gap-4 hover:bg-orange-100 transition duration-300"
+    >
+      <div className="flex-1">
+        <span className="text-lg text-orange-800">{task.text}</span>
+        <span className="ml-2 text-sm text-gray-500">
+          ({task.status}, {task.priority})
+        </span>
+      </div>
+
+      {showTrash ? (
+        // Trash view buttons
+        <div className="flex gap-2">
+          <button
+            onClick={() => restoreTask(task._id)}
+            className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition duration-200"
+          >
+            Restore
+          </button>
+          <button
+            onClick={() => permanentlyDeleteTask(task._id)}
+            className="px-3 py-1 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-full transition duration-200"
+          >
+            Delete Permanently
+          </button>
+        </div>
+      ) : (
+        // Normal tasks view buttons
+        <div className="flex gap-2 items-center">
+          <button
+            onClick={() => updateTasksStatus(task._id, task.status)}
+            className={`px-3 py-1 rounded-full font-semibold transition-colors duration-200 ${
+              task.status === "pending"
+                ? "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
+                : "bg-green-400 text-green-900 hover:bg-green-500"
+            }`}
+          >
+            {task.status === "pending" ? "Mark Complete" : "Mark Pending"}
+          </button>
+          <select
+            value={task.priority}
+            onChange={(e) => updateTasksPriority(task._id, e.target.value)}
+            className="p-2 border-2 border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button
+            onClick={() => deleteTask(task._id)}
+            className="flex items-center gap-1 px-3 py-1 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-full transition-colors duration-200 ml-2"
+            title="Delete Task"
+          >
+            <i className="fas fa-trash" /> Delete
+          </button>
+        </div>
+      )}
+    </li>
+  ))}
 </ul>
       </main>
       <footer className="bg-orange-500 text-white p-4 mt-auto text-center shadow-inner">
