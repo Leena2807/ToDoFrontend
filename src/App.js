@@ -227,14 +227,14 @@ const permanentlyDeleteTask = (id) => {
   );
   const MainApp = () => (
     <div className="min-h-screen bg-orange-50 flex flex-col">
-      <nav className="bg-orange-500 text-white px-6 py-4 flex justify-between items-centershadow-md">
+      <nav className="bg-[rgb(255,112,67)] text-white px-6 py-4 flex justify-between items-centershadow-md">
         <ul className="flex space-x-4">
           <li>
 <button
   onClick={() => setShowTrash(!showTrash)}
   className="px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-orange-600 hover:text-white focus: bg-orange-700 focus: outline-none"
 >
-  {showTrash ? "Hide Trash" : "View Trash"}
+  {showTrash ? "Hide Trash" : "View Trash 🗑️"}
 </button>
           </li>
         </ul>
@@ -242,7 +242,7 @@ const permanentlyDeleteTask = (id) => {
           onClick={logout}
           className="px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-orange-600 hover:text-white focus: bg-orange-700 focus: outline-none"
         >
-          Logout
+          Logout➡️
         </button>
       </nav>
       <main className="flex-1 p-8">
@@ -264,7 +264,7 @@ const permanentlyDeleteTask = (id) => {
           />
           <button
             type="submit"
-            className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-colors duration-200"
+            className="px-6 py-2 bg-[rgb(255,112,67)] hover:bg-orange-600 text-white font-bold rounded-lg transition-colors duration-200"
           >
             Add Task
           </button>
@@ -361,7 +361,7 @@ const permanentlyDeleteTask = (id) => {
   ))}
 </ul>
       </main>
-      <footer className="bg-orange-500 text-white p-4 mt-auto text-center shadow-inner">
+      <footer className="bg-[rgb(255,112,67)] text-white p-4 mt-auto text-center shadow-inner">
         © 2025 Your To-Do App
       </footer>
     </div>
