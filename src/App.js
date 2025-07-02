@@ -242,12 +242,12 @@ const permanentlyDeleteTask = (id) => {
           onClick={logout}
           className="px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-orange-600 hover:text-white focus: bg-orange-700 focus: outline-none"
         >
-          Logout➡️
+          Logout ➡️
         </button>
       </nav>
       <main className="flex-1 p-8">
         <h1 className="text-4x1 font-extrabold text-center mb-8 text-orange-600 drop-shadow">
-          MERN To-Do App
+         🚀 Your Flow To-Do 🚀
         </h1>
         <form
           onSubmit={(e) => {
@@ -362,7 +362,7 @@ const permanentlyDeleteTask = (id) => {
 </ul>
       </main>
       <footer className="bg-[rgb(255,112,67)] text-white p-4 mt-auto text-center shadow-inner">
-        © 2025 Your To-Do App
+        © 2025 Your Flow To-Do App 🚀
       </footer>
     </div>
   );
